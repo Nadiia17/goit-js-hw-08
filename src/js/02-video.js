@@ -11,27 +11,13 @@ function timeupdateHandler(event) {
   localStorage.setItem('videoplayer-current-time', currentTime);
 }
 
-window.addEventListener('DOMContentLoaded', startPlayFromCurrentTime);
+window.addEventListener('DOMContentLoaded', startPlayFromStoredTime);
 
-function startPlayFromCurrentTime() {
+function startPlayFromStoredTime() {
   const currentTimeFromStorage = localStorage.getItem(
     'videoplayer-current-time'
   );
   if (currentTimeFromStorage !== null) {
     player.setCurrentTime(currentTimeFromStorage);
-    //   .then(function (seconds) {
-    //     // seconds = the actual time that the player seeked to
-    //   })
-    //   .catch(function (error) {
-    //     switch (error.name) {
-    //       case 'RangeError':
-    //         // the time was less than 0 or greater than the video’s duration
-    //         break;
-
-    //       default:
-    //         // some other error occurred
-    //         break;
-    //     }
-    //   });
   }
 }
