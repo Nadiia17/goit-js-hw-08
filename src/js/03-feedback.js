@@ -37,7 +37,11 @@ function fillFormFromStorage() {
 
 function onFormSubmit(event) {
   event.preventDefault();
-  event.currentTarget.reset();
-  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
-  localStorage.removeItem('feedback-form-state');
+  if (emailEl.value.trim() !== '' && messageEl.value.trim() !== '') {
+    event.currentTarget.reset();
+    console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+    localStorage.removeItem('feedback-form-state');
+  } else {
+    alert('Before submit make sure both fields Email & Message are filled in!');
+  }
 }
